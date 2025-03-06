@@ -7,11 +7,13 @@ import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
 import {S} from "./components/pages/_styles";
 import { Model } from './components/pages/Model';
+import {Prices} from "./components/pages/Prices";
 
 const PATH = {
     PAGE1: 'adidas',
     PAGE2: 'puma',
     PAGE3: 'abibas',
+    PAGE4: 'prices',
     ERROR: '/error404'
 } as const
 
@@ -26,6 +28,7 @@ function App() {
                     <div><NavLink to={PATH.PAGE1} className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}>Adidas</NavLink></div>
                     <div><NavLink to={PATH.PAGE2} className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}>Puma</NavLink></div>
                     <div><NavLink to={PATH.PAGE3} className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}>Abibas</NavLink></div>
+                    <div><NavLink to={PATH.PAGE4} className={({isActive}) => isActive ? styles.activeNavLink : styles.navLink}>Prices</NavLink></div>
 
                     {/*вариант с помощью styled components*/}
                     {/*<S.NavWrapper><NavLink to={PATH.PAGE1}>Page 1</NavLink></S.NavWrapper>*/}
@@ -39,6 +42,7 @@ function App() {
                         <Route path={PATH.PAGE1} element={<Adidas/>}/>
                         <Route path={PATH.PAGE2} element={<Puma/>}/>
                         <Route path={PATH.PAGE3} element={<Abibas/>}/>
+                        <Route path={PATH.PAGE4} element={<Prices/>}/>
                         <Route path={'/:model/:id'} element={<Model/>}/>
 
                         <Route path={'/*'} element={<Error404/>}/>
